@@ -12,6 +12,9 @@ def post_mac_addresses(mac_addresses):
     response = requests.post(url, json=data)
     if response.status_code == 201:
         print("MAC addresses successfully posted to the API.")
+    elif response.status_code == 409:
+        print("Mathc Found. Here is the JSON response:")
+        print(response.json())
     else:
         print("HERE IS THE DATA EXAMPLE:")
         print(data)
